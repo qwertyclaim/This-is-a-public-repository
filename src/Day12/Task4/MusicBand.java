@@ -1,20 +1,18 @@
 package Day12.Task4;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 public class MusicBand {
     private String name;
     private int year;
-    private List<String> participant;
+    private List<String> participants;
 
-    public List<String> getParticipant() {
-        return participant;
+    public List<String> getParticipants() {
+        return participants;
     }
 
     public MusicBand(String name, int year, List<String> participant) {
         this.name = name;
         this.year = year;
-        this.participant = participant;
+        this.participants = participant;
     }
 
     @Override
@@ -22,7 +20,7 @@ public class MusicBand {
         return "MusicBand{" +
                 "name='" + name + '\'' +
                 ", year=" + year +
-                ", participant=" + participant +
+                ", participant=" + participants +
                 '}';
     }
 }

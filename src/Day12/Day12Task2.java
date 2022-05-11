@@ -1,24 +1,22 @@
+/* Из изменений в этом файле: вместо нескольких циклов "for", а также цикла "foreach" теперь есть метод, который
+* проходится по всем элементам динамического массива и заполянет их в соответствии с условием (условный оператор "if") */
 package Day12;
 import java.util.ArrayList;
 import java.util.List;
 public class Day12Task2 {
     public static void main(String[] args) {
-        int min = 0;
-        int max = 30;
-        int minSecond = 300;
-        int maxSecond = 350;
         List<Integer> list = new ArrayList<>();
-        for (int i = min; i<=max; i++) {
-            if (i%2==0)
-            list.add(i);
-        }
-        for (int i = minSecond; i<maxSecond; i++) {
+        fillNumbers(0, 30, list);
+        System.out.println(list);
+        fillNumbers(300, 350, list);
+        System.out.println(list);
+    }
+    public static List<Integer> fillNumbers (int min, int max, List<Integer> list) {
+        for (int i = min; i<max; i++) {
             if (i%2==0) {
                 list.add(i);
             }
         }
-        for (Integer x: list) {
-            System.out.println(x);
-        }
+        return list;
     }
 }
