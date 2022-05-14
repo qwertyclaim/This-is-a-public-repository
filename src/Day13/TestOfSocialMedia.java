@@ -1,4 +1,7 @@
 package Day13;
+import java.util.ArrayList;
+import java.util.List;
+
 import static Day13.MessageDatabase.*;
 public class TestOfSocialMedia {
 
@@ -29,8 +32,5 @@ public class TestOfSocialMedia {
         addNewMessage(m10);
         Message m11 = new Message(user1, user3, "Я уже даже записался на олимпиаду ;)");
         addNewMessage(m11);
-
-
-        showDialog(user1, user3);
     }
 }

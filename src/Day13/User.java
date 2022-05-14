@@ -28,23 +28,27 @@ class User {
         subscriptions.add(subscriber);
     }
 
-    public void alreadySubscribed (User subscriber, List<User> subscription) {
-        for (int i = 0; i<subscription.size(); i++) {
-            if (subscriber.getSubscriptions().equals(subscriber.getUsername()) == true) {
-                System.out.println(subscriber.getUsername()+" уже подписан!");
-            } else {
-                subscriber.getSubscriptions().add(subscriber);
-                System.out.println(subscriber.getUsername()+" подписался!");
+    public void alreadySubscribed (User subscriber) {
+        for (int i = 0; i<subscriptions.size(); i++) {
+            if (subscriptions.get(i).getUsername().equals(subscriber.getUsername())) {
+                System.out.println("Пользователь уже подписан!");
+                break;
+            } else if (!subscriptions.get(i).getUsername().equals(subscriber.getUsername())) {
+                subscriptions.add(subscriber);
+                System.out.println("Новый подписчик!");
+                break;
             }
         }
     }
-    public void alreadyFriends (User friendly, List<User> friend) {
-        for (int i = 0; i<friend.size(); i++) {
-            if (friendly.getFriends().equals(friendly.getUsername())==true) {
-                System.out.println(friendly.getUsername()+" уже в списке друзей!");
-            } else {
-                friendly.getFriends().add(friendly);
-                System.out.println(friendly.getUsername()+" добавлен в список друзей!");
+    public void alreadyFriends (User subscriber) {
+        for (int i = 0; i<subscriptions.size(); i++) {
+            if (subscriptions.get(i).getUsername().equals(subscriber.getUsername())) {
+                System.out.println("Пользователь уже в списке друзей!");
+                break;
+            } else if (!subscriptions.get(i).getUsername().equals(subscriber.getUsername())) {
+                subscriptions.add(subscriber);
+                System.out.println("Новый друг!");
+                break;
             }
         }
     }
