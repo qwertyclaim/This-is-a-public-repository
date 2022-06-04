@@ -8,21 +8,26 @@ public class Day14Task2 {
         File file = new File("File");
         printSumDigits(file);
     }
-    static void printSumDigits (File f) {
-        int sumOfAllElements = 0;
-        File file = new File("File");
+    static void printSumDigits(File f) {
+        int sum = 0;
+        Scanner sc;
         try {
-            Scanner sc = new Scanner(file);
-            int[] mass = new int[10];
-            for(int i = 0; i<mass.length; i++) {
-                mass[i]=sc.nextInt();
-                sumOfAllElements+=mass[i];
+            sc = new Scanner(f);
+            String line = sc.nextLine();
+            String[] massLine = line.split(" ");
+            if (massLine.length!=10) {
+                throw new IllegalArgumentException();
             }
+            int[] massNumbers = new  int[massLine.length];
+            for (int i = 0; i<massLine.length; i++) {
+                massNumbers[i]=Integer.parseInt(massLine[i]);
+                sum=massNumbers[i]+sum;
+            }
+            System.out.println(sum);
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден!");
-        } catch (ArrayIndexOutOfBoundsException w) {
-            System.out.println("Чисел в файле больше 4-х");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Неккоректный входной файл!");
         }
-        System.out.println(sumOfAllElements);
     }
 }
